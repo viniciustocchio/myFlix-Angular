@@ -1,3 +1,5 @@
+[![shield angular](https://img.shields.io/badge/viniciustocchio-angular-red)](https://github.com/viniciustocchio/myFlix-Angular)
+
 # MyFlixAngularClient
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
