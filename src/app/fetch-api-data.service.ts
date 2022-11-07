@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 const apiUrl = 'https://viniciustocchio-myflix.herokuapp.com/';
+
 const token = localStorage.getItem('token');
 const username = localStorage.getItem('username');
 
