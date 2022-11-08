@@ -101,19 +101,24 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  addFavoriteMovie(movieID: string): Observable<any> {
+addFavoriteMovie(movieID: string): Observable<any> {
+    // Get Authorization token stored in local storage
     const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
+    // Get Username stored in local storage
+    const username = localStorage.getItem('user');
     return this.http
-      .put(
-        `${apiUrl}users/${user}/movies/${movieID}`,
-        { FavoriteMovie: movieID },
-        {
-          headers: new HttpHeaders({ Authorization: 'Bearer ' + token }),
-        }
-      )
-      .pipe(map(this.extractResponseData), catchError(this.handleError));
+      .post(apiUrl+`users/${username}/movies/${movieID}`, null, {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        })
+      })
+      .pipe(
+        map(this.extractResponseData),
+        catchError(this.handleError)
+      );
   }
+
+
 
   editUser(updateDetails: any): Observable<any> {
     const token = localStorage.getItem('token');

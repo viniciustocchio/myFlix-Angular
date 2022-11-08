@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit {
   getUser(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
-      console.log(this.user);
+      console.log(this.user,"user info");
       return this.user;
     });
   }

@@ -15,7 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
-  favoriteMovies: any[] = [];
+  favouriteMovies: any[] = [];
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -38,14 +38,16 @@ export class MovieCardComponent implements OnInit {
 
  getFavoriteMovies(): void {
     this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
-      this.favoriteMovies = resp;
-      console.log(this.favoriteMovies);
-      return this.favoriteMovies;
+      this.favouriteMovies = resp;
+      console.log(this.favouriteMovies,"fav of user");
+      return this.favouriteMovies;
     });
   }
 
  isFav(id: string): boolean {
-    return this.favoriteMovies.includes(id);
+  console.log(this.favouriteMovies,"is or not");
+  
+    return this.favouriteMovies.includes(id);
   }
 
  openGenreDialog(name: string, description: string): void {
